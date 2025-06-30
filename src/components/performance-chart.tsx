@@ -2,17 +2,47 @@
 
 import { performanceData } from "@/lib/data";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 
-// Dynamically import Recharts components with no SSR
-const BarChart = dynamic(() => import("recharts/es6/chart/BarChart"), { ssr: false });
-const Bar = dynamic(() => import("recharts/es6/cartesian/Bar"), { ssr: false });
-const XAxis = dynamic(() => import("recharts/es6/cartesian/XAxis"), { ssr: false });
-const YAxis = dynamic(() => import("recharts/es6/cartesian/YAxis"), { ssr: false });
-const CartesianGrid = dynamic(() => import("recharts/es6/cartesian/CartesianGrid"), { ssr: false });
-const Tooltip = dynamic(() => import("recharts/es6/component/Tooltip"), { ssr: false });
-const Legend = dynamic(() => import("recharts/es6/component/Legend"), { ssr: false });
-const ResponsiveContainer = dynamic(() => import("recharts/es6/component/ResponsiveContainer"), { ssr: false });
+// Simple client-side only chart rendering
+function ChartComponent() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div className="h-[500px] w-full flex items-center justify-center">Loading chart...</div>;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = require('recharts');
+
+  return (
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart
+        data={performanceData}
+        margin={{ top: 20, right: 30, left: 20, bottom: 120 }}
+        barSize={30}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis 
+          dataKey="category" 
+          angle={-45} 
+          textAnchor="end"
+          height={100}
+          interval={0}
+        />
+        <YAxis domain={[0, 10]} />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="windsurf" name="Windsurf" fill="#3b82f6" />
+        <Bar dataKey="cursor" name="Cursor" fill="#f97316" />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+}
 
 export function PerformanceChart() {
   return (
@@ -25,27 +55,7 @@ export function PerformanceChart() {
       </CardHeader>
       <CardContent className="pt-6">
         <div className="h-[500px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={performanceData}
-              margin={{ top: 20, right: 30, left: 20, bottom: 120 }}
-              barSize={30}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="category" 
-                angle={-45} 
-                textAnchor="end"
-                height={100}
-                interval={0}
-              />
-              <YAxis domain={[0, 10]} />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="windsurf" name="Windsurf" fill="#3b82f6" />
-              <Bar dataKey="cursor" name="Cursor" fill="#f97316" />
-            </BarChart>
-          </ResponsiveContainer>
+          <ChartComponent />
         </div>
         <div className="mt-8 space-y-4">
           <h3 className="text-lg font-medium">Key Insights:</h3>
