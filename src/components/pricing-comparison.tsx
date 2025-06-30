@@ -67,16 +67,16 @@ export function PricingComparison() {
         <h3 className="text-xl font-medium mb-4">Pricing Analysis</h3>
         <div className="max-w-2xl mx-auto text-left space-y-4">
           <p>
-            <strong>Cost Comparison:</strong> Windsurf offers more competitive pricing with Pro plans at $15/month versus Cursor's $20/month.
-            Windsurf's free tier provides more generous features including 25 prompt credits and access to premium models.
+            <strong>Cost Comparison:</strong> Windsurf offers more competitive pricing with Pro plans at $15/month versus Cursor&apos;s $20/month.
+            Windsurf&apos;s free tier provides more generous features including 25 prompt credits and access to premium models.
           </p>
           <p>
-            <strong>Value Proposition:</strong> Windsurf's lower pricing combined with superior multi-file capabilities and enterprise features provides better value for complex development work.
-            The platform's autonomous capabilities can justify higher per-seat costs through productivity gains.
+            <strong>Value Proposition:</strong> Windsurf&apos;s lower pricing combined with superior multi-file capabilities and enterprise features provides better value for complex development work.
+            The platform&apos;s autonomous capabilities can justify higher per-seat costs through productivity gains.
           </p>
           <p>
-            <strong>Feature Availability:</strong> Windsurf's free tier includes unlimited fast Tab completion and access to multiple AI models.
-            Paid tiers unlock higher prompt limits and advanced features like SWE-1 models. Cursor's free tier is more limited, with key features requiring paid subscriptions.
+            <strong>Feature Availability:</strong> Windsurf&apos;s free tier includes unlimited fast Tab completion and access to multiple AI models.
+            Paid tiers unlock higher prompt limits and advanced features like SWE-1 models. Cursor&apos;s free tier is more limited, with key features requiring paid subscriptions.
           </p>
         </div>
       </div>

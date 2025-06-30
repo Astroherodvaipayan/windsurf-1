@@ -51,7 +51,7 @@ export function PerformanceChart() {
           <h3 className="text-lg font-medium">Key Insights:</h3>
           <ul className="list-disc pl-5 space-y-2">
             <li><strong>Context Understanding:</strong> Windsurf significantly outperforms Cursor in cross-file context awareness and large codebase understanding.</li>
-            <li><strong>Multi-file Operations:</strong> Windsurf's Cascade agent excels at propagating changes across multiple files and maintaining consistency.</li>
+            <li><strong>Multi-file Operations:</strong> Windsurf&apos;s Cascade agent excels at propagating changes across multiple files and maintaining consistency.</li>
             <li><strong>Learning Curve:</strong> Cursor has a gentler learning curve due to its VS Code familiarity, while Windsurf requires more initial learning.</li>
             <li><strong>Developer Satisfaction:</strong> Both tools receive high satisfaction ratings, with Windsurf preferred for complex tasks and Cursor for simpler operations.</li>
           </ul>
